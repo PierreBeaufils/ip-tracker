@@ -16,16 +16,12 @@ function App() {
   const submit = () => {
     axios.get(`https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_IPIFY_KEY}&ipAddress=${ip}`)
       .then((response) => {
-        console.log(response);
         const data = response.data;
         setAddress(data.ip);
         setLocation(`${data.location.city}, ${data.location.region}, , ${data.location.country}`);
         setTz(data.location.timezone);
         setIsp(data.isp);
         setCoordinates([data.location.lat, data.location.lng]);
-      })
-      .catch((err) => {
-        console.log('invalide');
       });
   }
 
@@ -45,14 +41,17 @@ function App() {
           <h4>IP Address</h4>
           <span>{address}</span>
         </div>
+        <div className="separator" />
         <div className="tracker-infos-item item-location">
           <h4>Location</h4>
           <span>{location}</span>
         </div>
+        <div className="separator" />
         <div className="tracker-infos-item item-timezone">
           <h4>Timezone</h4>
           <span>{tz}</span>
         </div>
+        <div className="separator" />
         <div className="tracker-infos-item item-ip">
           <h4>Isp</h4>
           <span>{isp}</span>

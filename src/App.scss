@@ -79,6 +79,13 @@
   }
 }
 
+.separator {
+  width: 1px;
+  height: 65px;
+  background-color: rgb(223, 223, 223);
+  margin: auto;
+}
+
 @media (max-width: 460px) {
   .tracker-input {
     width: 90%;
@@ -92,5 +99,26 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -40%);
+    flex-flow: column nowrap;
+    height: auto;
+    padding: 15px;
+    width: 72%;
+
+    &-item {
+      padding-bottom: 8px;
+
+      & h4 {
+        font-size: 12px;
+        padding-bottom: 3px
+      }
+
+      & span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .separator {
+    display: none;
   }
 }
