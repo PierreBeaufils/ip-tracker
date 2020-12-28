@@ -25,7 +25,6 @@ function App() {
   const submit = (ipAdress = ip) => {
     axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_IPIFY_KEY}&ip=${ipAdress}`)
       .then((response) => {
-        console.log(response);
         const data = response.data;
         setAddress(data.ip);
         setLocation(`${data.city}, ${data.district}, ${data.country_name}`);
