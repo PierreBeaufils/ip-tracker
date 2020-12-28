@@ -23,7 +23,7 @@ function App() {
   };
 
   const submit = (ipAdress = ip) => {
-    axios.get(`http://api.ipstack.com/${ipAdress}?access_key=${process.env.REACT_APP_IPIFY_KEY}`)
+    axios.get(`https://api.ipstack.com/${ipAdress}?access_key=${process.env.REACT_APP_IPIFY_KEY}`)
       .then((response) => {
         const data = response.data;
         setAddress(data.ip);
