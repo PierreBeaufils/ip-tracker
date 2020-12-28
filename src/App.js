@@ -23,13 +23,14 @@ function App() {
   };
 
   const submit = (ipAdress = ip) => {
-    axios.get(`https://api.ipstack.com/${ipAdress}?access_key=${process.env.REACT_APP_IPIFY_KEY}`)
+    axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_IPIFY_KEY}&ip=${ipAdress}`)
       .then((response) => {
+        console.log(response);
         const data = response.data;
         setAddress(data.ip);
-        setLocation(`${data.city}, ${data.region_name}, ${data.country_name}`);
+        setLocation(`${data.city}, ${data.district}, ${data.country_name}`);
         setCountry(data.country_name);
-        setIsp(data.type);
+        setIsp(data.isp);
         setCoordinates([data.latitude, data.longitude]);
       })
       .finally(() => setAuthorization(true));
@@ -69,7 +70,7 @@ function App() {
             </div>
             <div className="separator" />
             <div className="tracker-infos-item item-ip">
-              <h4>Type</h4>
+              <h4>ISP</h4>
               <span>{isp}</span>
             </div>
           </div>
