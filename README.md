@@ -1,7 +1,7 @@
 # IP Address Tracker
 
 
-React application to track IP
+React application to track IP address
 
 Installation
 --------------------
